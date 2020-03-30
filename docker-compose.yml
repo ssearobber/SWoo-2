@@ -1,15 +1,15 @@
 version: "3"
 services:
   nginx:
-    restart: always
-    depends_on:
+    restart: always # 컨테이너에 restart: always를 설정하면, 컨테이너가 실행 중 중단됐을 때(여기서는 어떤 특정 서비스가 ready 상태가 아직 안 돼 중단된 경우) 컨테이너를 다시 알아서 재시작을 해준다.
+    depends_on: # links(또는 depends_on)로 두 컨테이너를 연결 , links나 depends_on 은 단지 컨테이너가 시작되는 순서만 컨트롤할 뿐, 컨테이너 안의 서비스가 "ready"(실제 실행 가능한 상태)인지 아닌지에 대해서까지는 관여하지 않는다.
       - api
       - client
     build:
       dockerfile: Dockerfile.dev
       context: ./nginx
     ports:
-      - "3050:80"
+      - "3050:80" # 3050 포트로 접속하면, Nginx의 80포트와 연결해 준다.
   postgres:
     image: "postgres:latest"
     env_file:

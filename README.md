@@ -24,4 +24,4 @@
 
 - tamastudy
 
-- [cors 이해](https://velog.io/@leejh3224/CORS-Real-examples-8yjnloovl5)
+- [Docker Compose 이해](https://blog.silnex.kr/dockerdocker-compose-%EC%A0%95%EB%A6%AC/)
